@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+class Cola {
+private:
+  int A[10];
+  int *ini = A;
+  int *fin = A + 9;
+  int *head = nullptr;
+  int *tail = nullptr;
+  int tmp;
+
+public:
+  void push(int v) {
+    if (head == nullptr && tail == nullptr) {
+      head = ini;
+      tail = ini;
+      *tail = v;
+      return;
+    }
+    if (tail == A + 9) {
+      if (head == A) {
+        cout << "COLA LLENA " << endl;
+        return;
+      } else {
+        tail = A;
+        *tail = v;
+        return;
+      }
+    }
+    if (tail + 1 != head) {
+      tail++;
+      *tail = v;
+      return;
+    } else {
+      cout << "COLA LLENA " << endl;
+      return;
+    }
+  }
+  int pop() {
+    if (head == nullptr && tail == nullptr) {
+      cout << "COLA VACIA " << endl;
+      return -1;
+    }
+    if (head == tail) {
+      tmp = *head;
+      head = nullptr;
+      tail = nullptr;
+      return tmp;
+    }
+    if (head == A + 9) {
+      tmp = *head;
+      head = A;
+      return tmp;
+    }
+    tmp = *head;
+    head++;
+    return tmp;
+  }
+};
+int main() {
+  Cola mycola;
+  return 0;
+}
