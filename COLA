@@ -18,7 +18,7 @@ public:
       *tail = v;
       return;
     }
-    if (tail == A + 9) {
+    if (tail == fin) {
       if (head == A) {
         cout << "COLA LLENA " << endl;
         return;
@@ -48,7 +48,7 @@ public:
       tail = nullptr;
       return tmp;
     }
-    if (head == A + 9) {
+    if (head == fin) {
       tmp = *head;
       head = A;
       return tmp;
